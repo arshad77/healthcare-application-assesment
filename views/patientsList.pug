@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    title Healthcare-System
+  body
+    h1.
+      WELCOME TO HEALTHCARE SYSTEM
+    if(logged === true)
+      h1  Patients Appointment details
+      a(href='/') Home
+      if(user)
+        h2 Welcome #{user}
+      else
+        h2 Welcome user
+      h2 Appointments:
+      table
+        tr
+          th Name
+          th Email
+          th Phone
+          th Appointment Time
+          th Doctor Name
+          th Reason
+        each patient in patients
+            tr
+              td #{patient.name}
+              td #{patient.email}
+              td #{patient.phone}
+              td #{patient.time} 
+              td #{patient.doctors}
+              td #{patient.problems}
+
+      a(href='/')
+        button Home 
+    else  
+      h2.
+        Login to cotinue....
+      form(action='/',method='post')
+        h3 Name
+        input(type='text' name='name')
+        h3 Password
+        input(type='password' name='password')
+        br
+        br
+        if(invalid)
+          p invalid credentials
+        button(type='submit') LogIn
+    
+
+doctype html
+html
+  head
+    title Healthcare-System
+  body
+     
+    
+
+  
+

@@ -1,0 +1,64 @@
+doctype html
+html
+  head
+    title Healthcare-System
+  body
+    h1.
+      WELCOME TO HEALTHCARE SYSTEM
+    if(logged === true)
+      h1  Book Appointment
+      a(href='/') Home
+      if(user)
+        h2 Welcome #{user}
+      else
+        h2 Welcome user
+      h2 Enter Patients Detail:
+      form(action='/book',method='post')
+        table
+          tr
+            td Enter Name
+            td
+              input(type='text',name='name',value='',required)
+          tr
+            td Enter email
+            td
+              input(type='email',name='email',value='',required)
+          tr
+            td Appointment Date
+            td
+              input(type="time",name="time",min="09:00",max="22:00",required)
+          tr
+            td Phone no
+            td
+              input(type="number",name="phone",placeholder="Phone",required)
+          tr
+            td Doctor Name:
+            td
+              select(name="doctors",required)
+                option(value='Dr.Patnayak')  Dr.Patnayak
+                option(value='Dr.Naveen') Dr.Naveen
+                option(value='Dr.Kamala') Dr.Kamala
+          tr
+            td Problems:
+            td
+              select(name="problems",required)
+                option(value='Heart Checkup')  Heart Checkup
+                option(value='Body Checkup') Body Checkup
+                option(value='General Checkup') General Checkup
+        input(type='submit' value='Submit')
+      a(href='/book')
+        button Reset 
+    else  
+      h2.
+        Login to cotinue....
+      form(action='/',method='post')
+        h3 Name
+        input(type='text' name='name')
+        h3 Password
+        input(type='password' name='password')
+        br
+        br
+        if(invalid)
+          p invalid credentials
+        button(type='submit') LogIn
+    

@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Healthcare-System
+  body
+    h1.
+      WELCOME TO HEALTHCARE SYSTEM
+    if(logged === true)
+      form(action='/logout',method='post')    
+        h3
+          a(href='/book') Book Appointments
+        h3
+          a(href='/doctorlist') Doctors Details
+        h3
+          a(href='/patientsList') Patients Details
+        button(type='submit') Logout
+    else  
+      form(action='/',method='post')
+        h3 Name
+        input(type='text' name='name')
+        h3 Password
+        input(type='password' name='password')
+        br
+        br
+        if(invalid)
+          p invalid credentials
+        button(type='submit') LogIn

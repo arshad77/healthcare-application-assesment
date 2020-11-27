@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    title Healthcare-System
+  body
+    h1.
+      WELCOME TO HEALTHCARE SYSTEM      
+    if(logged === true)
+      h1  Doctor details
+      a(href='/') Home
+      if(user)
+        h2 Welcome #{user}
+      else
+        h2 Welcome user
+      h2 Current Doctors Details:
+      table
+        tr
+          th Name
+          th Expertise
+          th Consulting Hours
+          th Consulting Fees
+        each doctor in doctors
+            tr
+              td #{doctor.name}
+              td #{doctor.specality}
+              td #{doctor.avaiHour} 
+              td ₹.#{doctor.fee}
+      a(href='/')
+        button Home
+    else  
+      h2.
+        Login to cotinue....
+      form(action='/',method='post')
+        h3 Name
+        input(type='text' name='name')
+        h3 Password
+        input(type='password' name='password')
+        br
+        br
+        if(invalid)
+          p invalid credentials
+        button(type='submit') LogIn
+     
+    
+
+  
+
